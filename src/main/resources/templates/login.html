@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="ZBteam">
+    <meta name="robots" content="noindex"/>
+    <meta name="robots" content="nofollow"/>
+    <meta name="googlebot" content="noindex"/>
+    <meta name="AdsBot-Google" content="noindex"/>
+    <meta name="googlebot-news" content="nosnippet">
+    <meta name="Mediapartners-Google" content="nosnippet">
+    <meta name="AdsBot-Google-Mobile-Apps" content="nosnippet">
+
+    <link rel="stylesheet" th:href="@{/css/reset-bv1-css.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style-bv1.css}"/>
+    <link rel="stylesheet" th:href="@{/css/email-formulare.css}"/>
+    <link rel="stylesheet" th:href="@{/css/home-style.css}"/>
+
+    <link th:href="@{/css/style-profile.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style-digitale-article.css}" rel="stylesheet"/>
+    <!--        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+<main class="container col-xl-10 col-lg-11 col-md-12 col-12 p-xl-5 p-lg-5 p-md-3 p-2
+     mx-auto align-content-center bg-blur my-register-div">
+    <header th:include="~{fragments/nav}"></header>
+    <hr class="p-1">
+    <h1 class="text    border-bottom mb-5">Anmelden</h1>
+    <!--    <div class="d-flex justify-content-center">-->
+    <!--carousel-->
+    <div class="row">
+        <div class="col-md-6 d-none d-md-block mx-auto">
+            <div class="carousel slide " data-ride="carousel" id="carouselExampleIndicators">
+                <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
+                    <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+                    <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+                    <li data-slide-to="3" data-target="#carouselExampleIndicators"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <picture>
+                            <img alt="anwalt" class="img-fluid" loading="lazy"
+                                 th:src="@{/images/{images}(images=${firstImg})}">
+                        </picture>
+                    </div>
+                    <div class="carousel-item">
+                        <picture>
+                            <img alt="libe" class="img-fluid" loading="lazy"
+                                 th:src="@{/images/{images}(images=${secondImg})}">
+                        </picture>
+                    </div>
+                    <div class="carousel-item">
+                        <picture>
+                            <img alt="online geld verdienen" class="img-fluid" loading="lazy"
+                                 th:src="@{/images/{images}(images=${thirdImg})}">
+                        </picture>
+                    </div>
+                    <div class="carousel-item">
+                        <picture>
+                            <img alt="Psihologie" class="img-fluid" loading="lazy"
+                                 th:src="@{/images/{images}(images=${fourthImg})}">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-4 mb-4 mx-auto">
+            <!--`login -->
+            <div class="row g-3 align-items-center" id="login">
+                <div class="alert alert-danger" role="alert" th:if="${bad_credentials}">
+                    Diese Kombination aus Benutzername und Passwort existiert nicht.
+                </div>
+                <form th:action="@{/users/login}" th:method="POST" th:object="${userLoginBindingModel}">
+                    <!--User name-->
+                    <div>
+                        <div class="col-auto">
+                            <label class="col-form-label  " for="inputUsername"></label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text"
+                                   name="username"
+                                   minlength="3"
+                                   placeholder="Username"
+                                   required th:value="${username}"
+                                   th:errorclass="is-invalid"
+                                   id="inputUsername"
+                                   class="form-control"
+                                   aria-describedby="usernameHelpInline">
+                        </div>
+                    </div>
+                    <!--EO: User name-->
+                    <!-- Password -->
+                    <div>
+                        <div class="col-auto">
+                            <label class="col-form-label text-light" for="inputPassword"></label>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-control" id="inputPassword"
+                                   minlength="3"
+                                   name="password" placeholder="Passwort"
+
+                                   required type="password"
+                                   aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex justify-content-center mt-2">
+                            <!--                    <button class="btn btn-primary btn-block w-50" type="submit">Login</button>-->
+                            <button class="btn btn-sm btn-outline-secondary w-75" type="submit">Anmelden</button>
+                        </div>
+                    </div>
+                    <!--reset password-->
+                    <div class="col-auto">
+                        <div class="d-flex justify-content-center mt-2">
+                            <a th:href="@{/reset/password}">Passwort vergessen ?</a>
+                        </div>
+
+                    </div>
+                    <!-- EO: Password -->
+                </form>
+                <!--                EQ ; reset password-->
+            </div>
+            <!--EQ login-->
+        </div>
+    </div>
+</main>
+
+
+<footer th:include="~{fragments/footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+carousel:
+  images: Recht_und_Gesetz.png,Dating_Beziehungen_und_Liebe.png,online_verdienen.png,PSYCHOLOGIE_PERSÖNLICHKEITSENTWICKLUNG.png
+  refresh-cron: '* */* * * * 1'
+info:
+  app:
+    description: REST MVC Demo using Spring MVC, Boot, Data and Swagger
+    name: REST MVC Demo
+    version: 1.0-
+logging:
+  level:
+    org: WARN
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, mappings, info, metrics, threaddump, heapdump, shutdown,
+          beans
+server:
+  port: 8081
+servlet:
+  multipart:
+    max-file-sizel: 10MB
+    max-request-sizel: 10MB
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ${MSQL_SECRET}
+    url: jdbc:mysql://localhost:3306/klein-repo-v0?createDatabaseIfNotExist=true
+    username: root
+    initialize: true
+#spring:
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    password: ${SQL_SECRET}
+#    url: jdbc:mysql://localhost:3306/dev_marketcenter_default?createDatabaseIfNotExist=true
+#    username: ${SQL_SERVER}
+#    initialize: true
+
+  spring:
+    mail:
+      host: smtp.gmail.com
+      password: ${PASSWORD}
+      port: 587
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+      username: kasparitaly@gmail.com
+
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write_dates_as_timestamps: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

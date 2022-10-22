@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block>
+
+    <!--LOGAOUT button-->
+
+    <th:block sec:authorize="authenticated">
+        <nav class=" navbar navbar-expand-xl  fixed-top " id="logoutBtn">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item logout-button">
+                    <span class="tooltiptext">Ausloggen</span>
+                    <form method="POST" th:action="@{/logout}">
+                        <button class="btn   btn-block  " type="submit">
+                            <img alt="Ausloggen" class="img-fluid"
+                                 src="{}">
+
+                        </button>
+
+
+                    </form>
+                </li>
+            </ul>
+
+        </nav>
+
+
+    </th:block>
+    <!--EQ logout  button-->
+
+
+    <!--HALLO USER-->
+
+    <th:block sec:authorize="authenticated">
+
+        <div class="col-sm-12 p-2" th:id="hallo">
+
+            <div class="text user-name">
+                <span th:text="|Hallo  ${hello}|">Hallo  {first name}  </span>
+            </div>
+
+        </div>
+
+
+    </th:block>
+
+    <!--EQ HALLO USER-->
+
+
+    <nav class="navbar navbar-expand-md bg-nav  ">
+
+
+        <a class="nav-link" id="logo" th:href="@{/}">
+            <img alt="logo" border="5" id="fon" loading="lazy"
+                 th:src="@{/images/logo.png}">
+        </a>
+
+
+        <!-- admin panel-->
+        <th:block sec:authorize="hasRole('ROLE_ADMIN')"  >
+            <div class="dropdown" sec:authorize="authenticated">
+                <button aria-expanded="false" aria-haspopup="true" class="btn btn-link btn-lg  dropdown-toggle"
+                        data-toggle="dropdown" id="dropdownAdminButton" type="button">
+                    Admin Panel
+                </button>
+                <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{/articles/add}">Add article</a>
+                    <a class="dropdown-item" th:href="@{/add/mt-digitale-produkte}">Add meta tags central pages</a>
+                    <a class="dropdown-item" th:href="@{/update/central-pages}">Update meta tags in central page</a>
+                    <a class="dropdown-item" th:href="@{/log/digitale}">Log-Statistics</a>
+                    <a class="dropdown-item" th:href="@{/log/digitale}">Statistic articles</a>
+                </div>
+            </div>
+        </th:block>
+        <!--  END admin panel-->
+
+
+        <!--        categories dropdown-->
+
+        <div class="dropdown">
+            <button aria-expanded="false" aria-haspopup="true" class=" btn  btn-link btn-lg  dropdown-toggle"
+                    data-toggle="dropdown" id="dropdownCategoryButton" type="button"> Kategorien
+            </button>
+            <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+
+
+                <a class="dropdown-item" th:href="@{/online/win}">OLINE VERDIENEN</a>
+                <a class="dropdown-item" th:href="@{/view/all-psychologie}">PSYCHOLOGIE & PERSÖNLICHKEITSENTWICKLUNG</a>
+                <a class="dropdown-item" th:href="@{/online/recht-und-gesetz}">RECHT UND GESETZ</a>
+                <a class="dropdown-item" th:href="@{/online/dating-und-beziehungen}">DATING, BEZIEHUNGEN & LIEBE</a>
+                <a class="dropdown-item" th:href="@{/online/sprache-lernen}">SPRACHE LERNEN</a>
+                <a class="dropdown-item" th:href="@{/online/forex-bitcoin}">CDF-FOREX-BITCOIN </a>
+                <a class="dropdown-item" th:href="@{/online/wettsysteme}">WETTSYSTEME</a>
+                <a class="dropdown-item" th:href="@{/online/essen}">ESSEN & GESUNDHEIT </a>
+
+
+            </div>
+        </div>
+
+        <!--     END  categories dropdown-->
+
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+
+
+            <ul class="navbar-nav row ">
+
+
+                <div class="btn-group  text-dark">
+                    <li class="nav-item col-md-auto ">
+                        <a class="nav-link   active h5"
+                           th:href="@{/home}">Marktplatz</a>
+                    </li>
+                    <th:block sec:authorize="!authenticated">
+
+                        <li class="nav-item col-md-auto">
+                            <a class="nav-link   active h5" th:href="@{/users/login}">Anmelden</a>
+                        </li>
+                    </th:block>
+                </div>
+
+
+            </ul>
+
+
+        </div>
+
+    </nav>
+
+</th:block>
+
+</html>

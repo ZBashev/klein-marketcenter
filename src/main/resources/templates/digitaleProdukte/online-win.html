@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{fragments/head}">
+
+
+</head>
+<body>
+<main class="container col-xl-10 col-lg-11 col-md-12 col-12 p-xl-5 p-lg-5 p-md-3 p-3 mx-auto bg-blur">
+    <header th:include="~{fragments/nav}">Navbar</header>
+    <hr class="p-1">
+    <h1 class="text bigDevices" id="title-card" ACCESSKEY="ONLINE VERDIENEN">ONLINE GELD VERDIENEN</h1>
+    <h4 class="limited smallDevices"></h4>
+    <hr>
+    <br>
+    <div class="row" id="digital-card">
+        <div class="col-lg-12">
+            <div class="row shop-listing" id="onlineWinList"></div>
+        </div>
+    </div>
+
+</main>
+<script th:src="@{/js/find-url-from-digitale-products.js}"></script>
+<script th:src="@{/js/fetch-digitale-produktes.js}"></script>
+<script th:src="@{/js/find-local-from-digitale-products.js}"></script>
+<script th:src="@{/js/fetch-local-digitale-produktes.js}"></script>
+<script th:src="@{/js/digital-products-headings.js}"></script>
+</body>
+</html>
+

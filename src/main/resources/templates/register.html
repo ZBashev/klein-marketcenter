@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="ZBteam">
+    <meta name="robots" content="noindex"/>
+    <meta name="robots" content="nofollow"/>
+    <meta name="googlebot" content="noindex"/>
+    <meta name="AdsBot-Google" content="noindex"/>
+    <meta name="googlebot-news" content="nosnippet">
+    <meta name="Mediapartners-Google" content="nosnippet">
+    <meta name="AdsBot-Google-Mobile-Apps" content="nosnippet">
+
+    <link rel="stylesheet" th:href="@{/css/reset-bv1-css.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style-bv1.css}"/>
+    <link rel="stylesheet" th:href="@{/css/email-formulare.css}"/>
+    <link rel="stylesheet" th:href="@{/css/home-style.css}"/>
+
+    <link th:href="@{/css/style-profile.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style-digitale-article.css}" rel="stylesheet"/>
+    <!--        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+<main class="container col-xl-10 col-lg-11 col-md-12 col-12 p-xl-5 p-lg-5 p-md-3 p-2 mx-auto align-content-center bg-blur my-register-div">
+    <header th:include="~{fragments/nav}"></header>
+    <hr class="border-bottom p-1 ">
+    <h1 class="text  border-bottom">Register</h1>
+    <div class="d-flex justify-content-center ">
+        <!--            <div class="row g-3 align-items-center">-->
+        <!--                <img alt="Picture of Article" class="w-50 rounded" src="/images/front/3D0.jpg" th:alt="picture">-->
+        <!--            </div>-->
+        <div class="row g-3">
+            <form th:action="@{/users/register}" th:method="POST" th:object="${userRegisterBindingModel}">
+                <!-- Username -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputUsername"></label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="username"
+                               type="text"
+                               class="form-control"
+                               aria-describedby="usernameHelpInline"
+                               id="inputUsername"
+                               pattern="[\S.]+" title="Erstellen Sie Ihren Benutzernamen ohne Leerzeichen !!!"
+                               maxlength="20"
+                               minlength="4" placeholder="Username" required
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{username}">
+                        <small class="invalid-feedback text-light form-text bg-danger rounded"
+                               id="usernameError"
+                               th:errors="*{username}" th:if="${#fields.hasErrors('username')}">
+                            Username length must be more than 3 characters</small>
+                        <small class="text-light form-text bg-danger rounded" id="usernameUniqueError"
+                               th:if="${existingUsername}"> Username ist bereits besetzt</small>
+                    </div>
+                </div>
+                <!-- EO: Username -->
+                <!-- First name -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label  " for="inputFirstName"> </label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="firstName"
+                               type="text"
+                               aria-describedby="firstNameHelpInline"
+                               maxlength="30"
+                               minlength="4" placeholder="Vorname" required
+                               id="inputFirstName"
+                               class="form-control"
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{firstName}">
+                        <small class=" text-light form-text bg-danger rounded" id="firstNameError"
+                               th:errors="*{firstName}" th:if="${#fields.hasErrors('firstName')}">
+                            Full name length must be more than 4 characters</small>
+                    </div>
+                </div>
+                <!-- EO: First name -->
+                <!--family name-->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label  " for="inputFamilyName"> </label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="familyName"
+                               type="text"
+                               aria-describedby="familyNameHelpInline"
+                               maxlength="30"
+                               minlength="4" placeholder="Nachname" required
+                               id="inputFamilyName"
+                               class="form-control"
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{familyName}">
+                        <small class=" text-light form-text bg-danger rounded" id="familyNameError"
+                               th:errors="*{familyName}" th:if="${#fields.hasErrors('familyName')}">
+                            Full name length must be more than 4 characters</small>
+                    </div>
+                </div>
+                <!--EO family name-->
+                <!-- Email -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputEmail"> </label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="email"
+                               type="text"
+                               aria-describedby="emailHelpInline"
+                               placeholder="E-Mail"
+                               required
+                               id="inputEmail"
+                               class="form-control"
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{email}">
+                        <small id="emailError"
+                               class="text-light form-text bg-danger rounded"
+                               th:errors="*{email}" th:if="${#fields.hasErrors('email')}"
+                        >Must be valid email</small>
+                        <small class="text-light form-text bg-danger rounded" id="emailUniqueError"
+                               th:if="${existingEmail}"> E-Mail ist bereits besetzt</small>
+                    </div>
+                </div>
+                <!-- EO: Email -->
+                <!-- Password -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputPassword"></label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="password"
+                               type="password"
+                               th:placeholder="Passwort"
+                               minlength="8" required
+                               th:errorclass="is-invalid"
+                               th:field="*{password}"
+                               id="inputPassword"
+                               class="form-control"
+                               aria-describedby="passwordHelpInline">
+                        <small id="passwordError"
+                               class="invalid-feedback text-light form-text bg-danger rounded"
+                               th:errors="*{password}" th:if="${#fields.hasErrors('password')}">
+                            Password length must be between 8 and 20 characters and passwords should match.
+                        </small>
+
+                    </div>
+                </div>
+                <!-- EO: Password -->
+                <!-- Password confirm -->
+                <div>
+                    <div class="col-auto">
+                        <label class="col-form-label text-light" for="inputConfirmPassword"></label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="confirmPassword"
+                               type="password"
+                               placeholder="Passwort bestätigen"
+                               required
+                               id="inputConfirmPassword"
+                               th:erorrclass="is-invalid"
+                               th:errorclass="bg-danger" th:field="*{confirmPassword}"
+                               class="form-control"
+                               aria-describedby="confirmPasswordHelpInline">
+                        <small id="confirmPasswordError"
+                               class="invalid-feedback text-light form-text bg-danger rounded"
+                               th:errors="*{confirmPassword}" th:if="${#fields.hasErrors('confirmPassword')}">
+                            Bitte stellen Sie sicher, dass die beiden Passworte identisch sind.</small>
+                        <small class="text-light form-text bg-danger rounded" id="uniquePasswordError"
+                               th:if="${failledPassword}">
+                            Bitte stellen Sie sicher, dass die beiden Passworte identisch sind.</small>
+                    </div>
+                </div>
+                <!-- EO: Password confirm -->
+                <div class="d-flex justify-content-center mt-4">
+                    <!--                    <button class="btn btn-primary btn-block w-50" type="submit">Register</button>-->
+                    <button class="btn btn-sm btn-outline-secondary w-75" type="submit">Absenden</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<footer th:include="~{fragments/footer}"></footer>
+</body>
+</html>

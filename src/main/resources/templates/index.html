@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:max-width="http://www.w3.org/1999/xhtml"
+      xmlns:height="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head th:include="~{fragments/head}"></head>
+
+<body>
+<main class="container col-xl-10 col-lg-11 col-md-12 col-12 p-xl-5 p-lg-5 p-md-3 p-2 mx-auto align-content-center bg-blur">
+    <header th:include="~{fragments/nav}"></header>
+    <hr class="p-1">
+    <h1>Willkommen bei MARKET-CENTER </h1>
+    <hr>
+    <div id="description">
+        <ul>
+            <p>Auf unserer Website finden Sie
+                Online- und Offline-Kurse, Hörprogramme und Seminare zu allen Themen, Beratung nach
+                verschiedenen Kategorien.
+            </p>
+            <a th:href="@{/online/win}">
+                <p>
+                <h2><b><u>ONLINE VERDIENEN</u></b></h2>
+            </a>
+            Hier bekommen Sie Tipps und Ideen rund um Influencer,
+            Marketingansätze und
+            Methoden mit verschiedenen sozialen Plattformen wie Instagram, Facebook, Tik Tok usw.
+            Dieses Wissen wird Ihnen helfen, Ihre eigenen Strategien für die Entwicklung Ihres
+            Online-Geschäfts zu entwickeln und
+            erfolgreicher zu sein und sich immer über neue Geschäftstrends im Klaren zu sein.
+            </p>
+
+            <a th:href="@{/view/all-psychologie}">
+                <p>
+                <h2><b><u>PSYCHOLOGIE & PERSÖNLICHKEITSENTWICKLUNG</u></b></h2>
+            </a>
+            Hier finden Sie Pakete zur persönlichen Motivation, Klang
+            Technologien und erreichen jeden mentalen Zustand in 10 Minuten oder weniger, Pakete für
+            Persönlichkeitsentwicklung für Männer und Frauen und viele Möglichkeiten der Selbstverbesserung,
+            Bewältigung von Problemen
+            mit verschiedenen Methoden der modernen Psychologie.
+            </p>
+
+            <a th:href="@{/online/recht-und-gesetz}">
+
+                <p>
+                <h2><b><u> RECHT-ANWALT UND GESETZ</u></b></h2>
+            </a>
+            Hier finden Sie Rechtsberatung für Online-Unternehmer,
+            rund um Online-Recht, Schuldenprobleme smart lösen, DSGVO-Documentation und vieles mehr.
+            </p>
+
+            <a th:href="@{/online/dating-und-beziehungen}">
+                <p>
+                <h2><b><u>DATING, BEZIEHUNGEN & LIEBE </u></b></h2>
+            </a>
+            Hier erhalten Sie adäquate Ratschläge, wie Sie mit
+            schmerzhaften Trennungen umgehen, wie man Freunde anzieht, kleine Tricks, um mit verschiedenen
+            sozialen Situationen umzugehen. Sie erfahren, was der richtige Partner für Sie ist und wie Sie ihn finden.
+            </p>
+
+            <a class="overlay" th:href="@{/online/sprache-lernen}">
+                <p>
+                <h2><b><u>SPRACHE LERNEN</u></b></h2>
+            </a>
+            Wie Sie bereits erraten haben, ist dies der Ort, an dem Sie
+            verschiedene Sprachen lernen können und verstehen verschiedene Methoden um sie leicht zu lernen.
+            Werden Sie ein Polyglott!
+            </p>
+
+            <a class="overlay" th:href="@{/online/forex-bitcoin}">
+                <p>
+                <h2><b><u>CDF-FOREX-BITCOIN</u></b></h2>
+            </a>
+            Sie lernen und verstehen, wie Sie Ihre eigenen Forex-Strategien
+            erstellen Handel, Handel mit Differenzkontrakten (CDF) und Kryptowährungen
+            </p>
+
+            <a class="overlay" th:href="@{/online/wettsysteme}">
+                <p>
+                <h2><b><u>WETTSYSTEME</u></b></h2>
+            </a>
+            Sportwetten Geld jeden Monat durch geheimen "Insider-Sportexperten"
+            Wetten", unterschiedliche Wege und Herangehensweisen in verschiedenen Sportarten.
+            </p>
+        </ul>
+    </div>
+    <!--        CAROUSEL-->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner shadow">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-6">
+                        <picture>
+                            <a th:href="@{/online/recht-und-gesetz}">
+                                <img alt="Anwalt" class="img-fluid" loading="lazy"
+                                     th:src="@{/images/{images}(images=${firstImg})}">
+                            </a>
+                        </picture>
+                    </div>
+                    <div class="col-6">
+                        <div class="carousel-caption mt-3 mt-sm-3 mt-xl-0 mt-lg-0 mt-md-0">
+                            <h2 class="carousel-text" id="carouselTextOne"><b><u>RECHT UND GESETZ</u></b><br/>
+                                Finden Sie heraus, was Ihre verfassungsmäßigen Rechte sind.<br/>
+                                Finden Sie heraus, wie Sie Ihr Online-Geschäft schützen können.<br/>
+                                Finden Sie den besten Rechtserklärungsgenerator zu einem günstigen Preis.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-6">
+                        <picture>
+                            <a th:href="@{/online/dating-und-beziehungen}">
+                                <img alt="Dating" class="img-fluid" loading="lazy"
+                                     th:src="@{/images/{images}(images=${secondImg})}">
+                            </a>
+                        </picture>
+                    </div>
+                    <div class="col-6">
+                        <div class="carousel-caption mt-3 mt-sm-3 mt-xl-0 mt-lg-0 mt-md-0">
+                            <h2 class="carousel-text" id="carouselTextTwo"><b><u>DATING, BEZIEHUNGEN &
+                                LIEBE</u></b><br/>
+                                Komm über die Trennung hinweg.<br/>
+                                Tricks, um den richtigen Partner anzuziehen.<br/>
+                                Was es bedeutet und wie man eine gesunde Beziehung aufbaut.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-6">
+                        <picture>
+                            <a th:href="@{/online/win}">
+                                <img class="img-fluid" th:src="@{/images/{images}(images=${thirdImg})}"
+                                     loading="lazy"
+                                     alt="Geld verdienen">
+                            </a>
+                        </picture>
+                    </div>
+                    <div class="col-6">
+                        <div class="carousel-caption mt-3 mt-sm-3 mt-xl-0 mt-lg-0 mt-md-0">
+                            <h2 class="carousel-text" id="carouselTextThree"><b><u>GELD ONLINE VERDIENEN</u></b><br/>
+                                Verschiedene Möglichkeiten, online Geld zu verdienen.<br/>
+                                Werden Sie unabhängig und verwalten Sie Ihr Leben. <br/>
+                                Erfahren Sie, wie Sie Ihr eigenes Geschäft im Internet aufbauen können.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-6">
+                        <picture>
+                            <a th:href="@{/view/all-psychologie}">
+                                <img class="img-fluid" th:src="@{/images/{images}(images=${fourthImg})}"
+                                     loading="lazy"
+                                     alt="PSYCHOLOGIE">
+                            </a>
+                        </picture>
+                    </div>
+                    <div class="col-6">
+                        <div class="carousel-caption mt-3 mt-sm-3 mt-xl-0 mt-lg-0 mt-md-0">
+                            <h2 class="carousel-text" id="carouselTextFour">
+                                <b><u>PERSÖNLICHKEITSENTWICKLUNG</u></b><br/>
+                                Verschiedene effektive und bewiesene Methoden um Müdigkeit, Depressionen, Negativität zu
+                                verbannen auch Gedanken usw.<br/>
+                                Um glücklich zu sein, müssen Sie wissen, wo Ihre Probleme liegen.<br/>
+                                Programme zu günstigen Preisen zu einem für Sie günstigen Zeitpunkt.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        CAROUSEL-->
+</main>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        var alterClass = function () {
+            var ww = document.body.clientWidth;
+            if (ww <= 950) {
+                $('#carouselTextOne').addClass('special');
+                $('#carouselTextTwo').addClass('special');
+                $('#carouselTextThree').addClass('special');
+                $('#carouselTextFour').addClass('special');
+            } else {
+                $('#carouselTextOne').removeClass('special');
+                $('#carouselTextTwo').removeClass('special');
+                $('#carouselTextThree').removeClass('special');
+                $('#carouselTextFour').removeClass('special');
+            }
+            ;
+        };
+        $(window).resize(function () {
+            alterClass();
+        });
+        alterClass();
+    });
+</script>
+<footer th:include="~{fragments/footer}"></footer>
+</body>
+
+
+</html>

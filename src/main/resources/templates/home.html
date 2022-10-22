@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:max-width="http://www.w3.org/1999/xhtml"
+      xmlns:height="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head th:include="~{fragments/head}">
+
+
+</head>
+<body>
+<main class="container col-xl-10 col-lg-11 col-md-11 col-11 p-xl-5 p-lg-5 p-md-4 p-4 mx-auto align-content-center bg-blur">
+    <header th:include="~{fragments/nav}"></header>
+    <hr class="p-1 ">
+    <h1 class="text" STYLE="text-align: center">MARKTPLATZ</h1>
+    <hr class="border-bottom w-95">
+
+
+    <div class="row portfolio-box megamenu-padding-box
+       filter abstract print p-2 " style="align-items: center" id="marketplatz">
+
+        <div class="col-sm-3 p-1 filter abstract print " style="text-align: center" id="category-digitale">
+
+
+            <div class="overlay-box mb-3">
+                <a th:href="@{/digitale-produkte/blick-digitale-produkte}">
+                    <img alt="Digitale Produkte" class="img-fluid" loading="lazy"
+                         th:src="@{images/home/digitale_producte.jpg}">
+                </a>
+                <a class="overlay" th:href="@{/digitale-produkte/blick-digitale-produkte}">
+                    <div class="cats port-text">
+                        <h2>Digitale Produkte</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="col-sm-3 p-1 filter abstract print " style="text-align: center" id="category-amazon">
+
+            <div class="overlay-box mb-3">
+                <a th:href="@{/amazon/schuhe}">
+                    <img alt="Geld per internet" class="img-fluid" loading="lazy"
+                         th:src="@{images/home/digitale_producte.jpg}">
+                </a>
+                <a class="overlay" th:href="@{/amazon/schuhe}">
+                    <div class="cats port-text">
+                        <h2>AMAZON</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--search bar-->
+    <hr class="border-bottom w-50">
+    <!--<div class="mt-5 col-sm-12 my-auto " id="searchBar">
+        <input aria-label="Search" class="form-control mr-sm-2 w-50" id="searchInput"
+               placeholder="Artikel oder Artikelnamen " type="search">
+    </div>-->
+
+
+    <div class="col-sm-12 mx-auto" id="searchBar">
+        <input aria-label="Search" class="form-control mr-sm-2 w-100" id="searchInput"
+               placeholder="Artikel oder Artikelnamen " type="search">
+    </div>
+
+
+    <hr class="border-bottom w-75">
+    <div class="row mt-5" id="articlesList"></div>
+
+
+</main>
+<footer th:include="~{fragments/footer}"></footer>
+<script th:src="@{/js/search-bar.js}"></script>
+</body>
+</html>
