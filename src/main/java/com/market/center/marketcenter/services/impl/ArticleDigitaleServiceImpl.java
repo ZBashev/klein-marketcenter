@@ -126,7 +126,7 @@ public class ArticleDigitaleServiceImpl implements ArticleDigitaleService {
     public void deleteArticles(String id) {
 
 
-        this.articleDigitaleRepository.deleteAllById(Collections.singleton(id));
+        this.articleDigitaleRepository.deleteById(id);
     }
 
     @Override

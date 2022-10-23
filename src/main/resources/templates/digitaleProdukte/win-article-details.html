@@ -18,10 +18,10 @@
     <meta name="author" content="ZBteam">
 
 
-    <title th:name="title" th:text="${onlineWinArticle.getMetaTitle()}"></title>
-    <meta th:name="keywords" th:attr="content=*{metaKeywords}">
-    <meta th:name="keywords"   th:content="${onlineWinArticle.getMetaKeywords()}">
-    <meta th:name="description" th:attr="content=*{metaDescriptions}">
+<!--    <title th:name="title" th:text="${onlineWinArticle.getMetaTitle()}"></title>-->
+<!--    <meta th:name="keywords" th:attr="content=*{metaKeywords}">-->
+<!--    <meta th:name="keywords"   th:content="${onlineWinArticle.getMetaKeywords()}">-->
+<!--    <meta th:name="description" th:attr="content=*{metaDescriptions}">-->
 
     <link rel="stylesheet" th:href="@{/css/reset-bv1-css.css}"/>
 
@@ -54,7 +54,7 @@
 
 
 
-
+<!--
 
     <div class="row rounded mb-5 mt-3" th:id="details-card" th:object="${onlineWinArticle}">
         <div class="col-md-6 bg-blur text" th:id="details-info">
@@ -107,9 +107,11 @@
 
             </div>
 
-            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+            &lt;!&ndash;sec:authorize="authenticated"&ndash;&gt;
+            &lt;!&ndash;sec:authorize="authenticated"&ndash;&gt;
+&lt;!&ndash;            <th:block sec:authorize="hasRole('ROLE_ADMIN')">&ndash;&gt;
                 <div class="row ">
-                    <div class="d-flex justify-content-between align-items-center" sec:authorize="authenticated">
+                    <div class="d-flex justify-content-between align-items-center" >
                         <div class="btn-group">
                             <a class="btn btn-sm btn-outline-secondary"
                                th:href="@{/update/article/{id}(id=${onlineWinArticle.id})}"
@@ -117,7 +119,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-between align-items-center" sec:authorize="authenticated">
+                    <div class="d-flex justify-content-between align-items-center"       >
                         <div class="btn-group">
                              <form th:action="@{/article/clean/{id}(id=${onlineWinArticle.id})}" th:method="DELETE">
                                 <button class="btn btn-sm btn-outline-clean-loschen" id="clean" th:type="SUBMIT">
@@ -127,11 +129,11 @@
                         </div>
                     </div>
                 </div>
-            </th:block>
+&lt;!&ndash;            </th:block>&ndash;&gt;
         </div>
 
 
-        <!--image URL-->
+        &lt;!&ndash;image URL&ndash;&gt;
 
 
 
@@ -146,6 +148,10 @@
 
 
   </div>
+
+    -->
+
+
 </main>
 <footer th:include="~{fragments/footer}"></footer>
 </body>

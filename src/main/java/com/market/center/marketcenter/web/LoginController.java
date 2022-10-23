@@ -5,7 +5,7 @@ import com.market.center.marketcenter.models.bindingModels.UserLoginBindingModel
 import com.market.center.marketcenter.models.serviceModels.UserLoginServiceModel;
 import com.market.center.marketcenter.services.CarouselService;
 import com.market.center.marketcenter.services.UserService;
-import org.jetbrains.annotations.NotNull;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
@@ -39,7 +39,7 @@ public class LoginController {
 
 
     @GetMapping("/login")
-    public String login(@NotNull Model model) {
+    public String login(  Model model) {
 
         model.addAttribute("firstImg", this.carouselService.firstImage());
         model.addAttribute("secondImg", this.carouselService.secondImage());

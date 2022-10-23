@@ -34,8 +34,18 @@
     <header th:include="~{fragments/nav}"></header>
 
     <h1 class="text-dark border-bottom">Update Digitale Articles</h1>
-    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
-        <div class="d-flex justify-content-center" sec:authorize="authenticated"
+
+
+
+
+
+<!--    <th:block sec:authorize="hasRole('ROLE_ADMIN')">-->
+    <!--sec:authorize="authenticated"-->
+
+
+    <!--
+
+        <div class="d-flex justify-content-center"
              th:object="${articleDigitaleViewModel}">
             <form th:action="@{/update/digitale}" th:method="PATCH" th:object="${articleDigitaleViewModel}">
                 <div class="form-row">
@@ -125,29 +135,6 @@
                     </div>
                 </div>
 
-
-<!--                <div class="form-row">-->
-<!--                    <div class="col">-->
-<!--                        <label for="price">Price</label>-->
-<!--                        <input class="form-control" id="price" name="price" placeholder="Price"-->
-
-<!--                               th:field="*{price}" type="text">-->
-
-<!--                    </div>-->
-<!--                </div>-->
-
-
-<!--                <div class="form-row">-->
-<!--                    <div class="col">-->
-<!--                        <label for="quantity">Quantity</label>-->
-<!--                        <input class="form-control" id="quantity" name="quantity"-->
-<!--                               placeholder="Quantity"-->
-
-<!--                               th:errorclass="is-invalid"-->
-<!--                               th:field="*{quantity}" type="number">-->
-
-<!--                    </div>-->
-<!--                </div>-->
 
 
                 <div class="form-row ">
@@ -286,7 +273,17 @@
                 </div>
             </form>
         </div>
-    </th:block>
+
+
+
+
+
+
+    -->
+
+
+
+<!--    </th:block>-->
 </main>
 <footer th:include="~{fragments/footer}"></footer>
 </body>

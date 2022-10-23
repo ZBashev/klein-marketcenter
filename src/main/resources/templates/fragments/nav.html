@@ -5,29 +5,51 @@
 
     <!--LOGAOUT button-->
 
+    <!--
     <th:block sec:authorize="authenticated">
-        <nav class=" navbar navbar-expand-xl  fixed-top " id="logoutBtn">
+        <li class=" navbar navbar-expand-xl     nav-item" id="logoutBtn">
+            <form th:method="POST" th:action="@{/logout}">
 
+
+                <span class="tooltiptext">Ausloggen</span>
+
+
+                <button class="btn btn-danger btn-block  " type="submit">auslogen
+
+
+                </button>
+
+
+            </form>
+        </li>
+
+    </th:block>
+-->
+
+
+    <th:block sec:authorize="authenticated">
+        <li class=" navbar navbar-expand-xl  fixed-top " id="logoutBtn">
+            <form method="POST" th:action="@{/logout}">
             <ul class="navbar-nav">
 
                 <li class="nav-item logout-button">
                     <span class="tooltiptext">Ausloggen</span>
-                    <form method="POST" th:action="@{/logout}">
+
                         <button class="btn   btn-block  " type="submit">
-                            <img alt="Ausloggen" class="img-fluid"
-                                 src="{}">
+
 
                         </button>
 
 
-                    </form>
+
                 </li>
             </ul>
-
-        </nav>
-
+        </form>
+        </li>
 
     </th:block>
+
+
     <!--EQ logout  button-->
 
 
